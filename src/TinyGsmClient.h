@@ -78,6 +78,11 @@ typedef TinyGsmM95::GsmClientM95 TinyGsmClient;
 typedef TinyGsmBG96                TinyGsm;
 typedef TinyGsmBG96::GsmClientBG96 TinyGsmClient;
 
+#elif defined(TINY_GSM_MODEM_ME91)
+#include "TinyGsmClientME91.h"
+typedef TinyGsmME91                TinyGsm;
+typedef TinyGsmME91::GsmClientME91 TinyGsmClient;
+
 #elif defined(TINY_GSM_MODEM_A6) || defined(TINY_GSM_MODEM_A7)
 #include "TinyGsmClientA6.h"
 typedef TinyGsmA6              TinyGsm;

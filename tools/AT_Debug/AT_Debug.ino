@@ -9,7 +9,7 @@
  **************************************************************/
 
 // Select your modem:
-#define TINY_GSM_MODEM_SIM800
+// #define TINY_GSM_MODEM_SIM800
 // #define TINY_GSM_MODEM_SIM900
 // #define TINY_GSM_MODEM_SIM808
 // #define TINY_GSM_MODEM_SIM868
@@ -21,7 +21,7 @@
 // #define TINY_GSM_MODEM_M590
 // #define TINY_GSM_MODEM_MC60
 // #define TINY_GSM_MODEM_MC60E
-// #define TINY_GSM_MODEM_ME91
+#define TINY_GSM_MODEM_ME91
 // #define TINY_GSM_MODEM_ESP8266
 // #define TINY_GSM_MODEM_XBEE
 
@@ -36,7 +36,7 @@
 // or Software Serial on Uno, Nano
 #else
 #include <SoftwareSerial.h>
-SoftwareSerial SerialAT(2, 3);  // RX, TX
+SoftwareSerial SerialAT(0, 1);  // RX, TX
 #endif
 
 #define TINY_GSM_DEBUG SerialMon

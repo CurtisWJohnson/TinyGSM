@@ -23,7 +23,7 @@
  **************************************************************/
 
 // Select your modem:
-#define TINY_GSM_MODEM_SIM800
+// #define TINY_GSM_MODEM_SIM800
 // #define TINY_GSM_MODEM_SIM808
 // #define TINY_GSM_MODEM_SIM868
 // #define TINY_GSM_MODEM_SIM900
@@ -41,7 +41,7 @@
 // #define TINY_GSM_MODEM_M590
 // #define TINY_GSM_MODEM_MC60
 // #define TINY_GSM_MODEM_MC60E
-// #define TINY_GSM_MODEM_ME91
+#define TINY_GSM_MODEM_ME91
 // #define TINY_GSM_MODEM_ESP8266
 // #define TINY_GSM_MODEM_XBEE
 // #define TINY_GSM_MODEM_SEQUANS_MONARCH
@@ -57,7 +57,7 @@
 // or Software Serial on Uno, Nano
 #else
 #include <SoftwareSerial.h>
-SoftwareSerial SerialAT(2, 3);  // RX, TX
+SoftwareSerial SerialAT(0, 1);  // RX, TX
 #endif
 
 // See all AT commands, if wanted
@@ -85,7 +85,7 @@ SoftwareSerial SerialAT(2, 3);  // RX, TX
 #define GSM_PIN ""
 
 // Your GPRS credentials, if any
-const char apn[]      = "YourAPN";
+const char apn[]      = "iot0119.com.attz";
 const char gprsUser[] = "";
 const char gprsPass[] = "";
 

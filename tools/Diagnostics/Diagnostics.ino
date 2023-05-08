@@ -28,6 +28,7 @@
 // #define TINY_GSM_MODEM_M590
 // #define TINY_GSM_MODEM_MC60
 // #define TINY_GSM_MODEM_MC60E
+// #define TINY_GSM_MODEM_ME91
 // #define TINY_GSM_MODEM_ESP8266
 // #define TINY_GSM_MODEM_XBEE
 // #define TINY_GSM_MODEM_SEQUANS_MONARCH
@@ -152,7 +153,8 @@ void loop() {
     SerialMon.println(F(" Is your serial speed (baud rate) correct?"));
     SerialMon.println(F(" Is your modem powered on?"));
     SerialMon.println(F(" Do you use a good, stable power source?"));
-    SerialMon.println(F(" Try using File -> Examples -> TinyGSM -> tools -> AT_Debug to find correct configuration"));
+    SerialMon.println(F(" Try using File -> Examples -> TinyGSM -> tools -> "
+                        "AT_Debug to find correct configuration"));
     SerialMon.println(F("************************"));
     delay(10000);
     return;

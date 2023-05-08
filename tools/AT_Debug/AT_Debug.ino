@@ -21,6 +21,7 @@
 // #define TINY_GSM_MODEM_M590
 // #define TINY_GSM_MODEM_MC60
 // #define TINY_GSM_MODEM_MC60E
+// #define TINY_GSM_MODEM_ME91
 // #define TINY_GSM_MODEM_ESP8266
 // #define TINY_GSM_MODEM_XBEE
 
@@ -43,7 +44,7 @@ SoftwareSerial SerialAT(2, 3);  // RX, TX
 #include <TinyGsmClient.h>
 
 // Module baud rate
-uint32_t rate = 0; // Set to 0 for Auto-Detect
+uint32_t rate = 0;  // Set to 0 for Auto-Detect
 
 void setup() {
   // Set console baud rate
@@ -52,17 +53,17 @@ void setup() {
 }
 
 void loop() {
+  if (!rate) { rate = TinyGsmAutoBaud(SerialAT); }
 
   if (!rate) {
-    rate = TinyGsmAutoBaud(SerialAT);
-  }
-
-  if (!rate) {
-    SerialMon.println(F("***********************************************************"));
+    SerialMon.println(
+        F("***********************************************************"));
     SerialMon.println(F(" Module does not respond!"));
     SerialMon.println(F("   Check your Serial wiring"));
-    SerialMon.println(F("   Check the module is correctly powered and turned on"));
-    SerialMon.println(F("***********************************************************"));
+    SerialMon.println(
+        F("   Check the module is correctly powered and turned on"));
+    SerialMon.println(
+        F("***********************************************************"));
     delay(30000L);
     return;
   }
@@ -70,19 +71,19 @@ void loop() {
   SerialAT.begin(rate);
 
   // Access AT commands from Serial Monitor
-  SerialMon.println(F("***********************************************************"));
+  SerialMon.println(
+      F("***********************************************************"));
   SerialMon.println(F(" You can now send AT commands"));
-  SerialMon.println(F(" Enter \"AT\" (without quotes), and you should see \"OK\""));
-  SerialMon.println(F(" If it doesn't work, select \"Both NL & CR\" in Serial Monitor"));
-  SerialMon.println(F("***********************************************************"));
+  SerialMon.println(
+      F(" Enter \"AT\" (without quotes), and you should see \"OK\""));
+  SerialMon.println(
+      F(" If it doesn't work, select \"Both NL & CR\" in Serial Monitor"));
+  SerialMon.println(
+      F("***********************************************************"));
 
-  while(true) {
-    if (SerialAT.available()) {
-      SerialMon.write(SerialAT.read());
-    }
-    if (SerialMon.available()) {
-      SerialAT.write(SerialMon.read());
-    }
+  while (true) {
+    if (SerialAT.available()) { SerialMon.write(SerialAT.read()); }
+    if (SerialMon.available()) { SerialAT.write(SerialMon.read()); }
     delay(0);
   }
 }

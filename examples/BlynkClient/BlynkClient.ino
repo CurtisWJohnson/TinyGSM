@@ -22,7 +22,7 @@
  * Change GPRS apm, user, pass, and Blynk auth token to run :)
  **************************************************************/
 
-#define BLYNK_PRINT Serial    // Comment this out to disable prints and save space
+#define BLYNK_PRINT Serial  // Comment this out to disable prints and save space
 
 // Default heartbeat interval for GSM is 60
 // If you want override this value, uncomment and set this option:
@@ -47,6 +47,7 @@
 // #define TINY_GSM_MODEM_M590
 // #define TINY_GSM_MODEM_MC60
 // #define TINY_GSM_MODEM_MC60E
+// #define TINY_GSM_MODEM_ME91
 // #define TINY_GSM_MODEM_ESP8266
 // #define TINY_GSM_MODEM_XBEE
 // #define TINY_GSM_MODEM_SEQUANS_MONARCH
@@ -79,8 +80,7 @@ const char auth[] = "YourAuthToken";
 
 TinyGsm modem(SerialAT);
 
-void setup()
-{
+void setup() {
   // Set console baud rate
   SerialMon.begin(115200);
   delay(10);
@@ -99,12 +99,11 @@ void setup()
   SerialMon.println(modemInfo);
 
   // Unlock your SIM card with a PIN
-  //modem.simUnlock("1234");
+  // modem.simUnlock("1234");
 
   Blynk.begin(auth, modem, apn, user, pass);
 }
 
-void loop()
-{
+void loop() {
   Blynk.run();
 }
